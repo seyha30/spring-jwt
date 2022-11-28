@@ -1,4 +1,4 @@
-package com;
+package com.service;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public interface UserService {
 
 	Role saveRole(Role role);
 
-	void addRoleToUser(String username);
+	void addRoleToUser(String username, String rolename);
 
 	User getUser(String username);
 

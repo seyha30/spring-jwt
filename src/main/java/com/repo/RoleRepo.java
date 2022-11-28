@@ -3,14 +3,15 @@ package com.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.domain.User;
+import com.domain.Role;
 
 /**
  * @author sseyha
- * @date Nov 28, 2022 9:34:53 PM
+ * @date Nov 28, 2022 9:38:25 PM
  */
 @Repository
-public interface UserRepo extends JpaRepository<User, Long> {
+public interface RoleRepo extends JpaRepository<Role, Long> {
 
-	User findByUserName(String userName);
+	Role findByName(String name);
 }
+ 

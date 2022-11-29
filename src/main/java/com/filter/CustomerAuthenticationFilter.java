@@ -27,46 +27,13 @@ public class CustomerAuthenticationFilter extends UsernamePasswordAuthentication
 	}
 
 	@Override
-	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-			throws AuthenticationException {
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 		String username = this.obtainUsername(request);
 		String password = this.obtainPassword(request);
 		log.info("User name is {} and the password is {} ", username, password);
-		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-				username, password);
-
+		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
 		return authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
-	}
-
-	@Override
-	protected String obtainPassword(HttpServletRequest request) {
-		return super.obtainPassword(request);
-	}
-
-	@Override
-	protected String obtainUsername(HttpServletRequest request) {
-		return super.obtainUsername(request);
-	}
-
-	@Override
-	protected void setDetails(HttpServletRequest request, UsernamePasswordAuthenticationToken authRequest) {
-		super.setDetails(request, authRequest);
-	}
-
-	@Override
-	public void setUsernameParameter(String usernameParameter) {
-		super.setUsernameParameter(usernameParameter);
-	}
-
-	@Override
-	public void setPasswordParameter(String passwordParameter) {
-		super.setPasswordParameter(passwordParameter);
-	}
-
-	@Override
-	public void setPostOnly(boolean postOnly) {
-		super.setPostOnly(postOnly);
 	}
 
 }

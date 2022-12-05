@@ -34,7 +34,6 @@ public class SecurityConfig {
 		http.cors().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.authorizeHttpRequests((authz) -> authz.anyRequest().authenticated()).httpBasic();
-		http.addFilter(new CustomerAuthenticationFilter(null));
 		return http.build();
 	}
 
@@ -44,20 +43,17 @@ public class SecurityConfig {
 		return new InMemoryUserDetailsManager(user);
 	}
 
-	@Bean
-	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-			throws Exception {
-		return authenticationConfiguration.getAuthenticationManager();
-	}
+//	@Bean
+//	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+//			throws Exception {
+//		return authenticationConfiguration.getAuthenticationManager();
+//	}
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-	@Bean
-	AuthenticationManager authenticationManagerBean() throws Exception {
-		return null;
-	}
+
 
 }
